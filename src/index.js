@@ -216,17 +216,18 @@ async function prepareQuery(){
 
 let colors = chroma.scale(['green', 'orange', 'blue', 'purple', 'red', 'brown', 'black']).colors(8)
 
-var myStyle = {
-  "color": colors[level],
-  "weight": 1,
-  opacity: 0.0,
-};
 
 function drawWKT(wktString, level, node) {
   if (level > 7) {
     level = 7
   }
 
+  var myStyle = {
+    "color": colors[level],
+    "weight": 1,
+    opacity: 0.0,
+  };
+  
   var poly = L.geoJSON(toJson(wktString), {
     style: myStyle,
   });
